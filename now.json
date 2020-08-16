@@ -1,0 +1,25 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "index.js",
+            "use": "@now/protejo-fe-back"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/",
+            "dest": "/index.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
+            "src": "/sendMail",
+            "dest": "/index.js",
+            "methods": [
+                "POST"
+            ]
+        }
+    ]
+}
