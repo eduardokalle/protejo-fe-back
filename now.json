@@ -3,7 +3,10 @@
     "name": "protejo-fe-backv2",
     "builds": [{
         "src": "index.js",
-        "use": "@now/node-server"
+        "use": "@now/node-server",
+        "env": {
+            "SENDGRID_API_KEY": "@sendgrid_api_key"
+          }
     }],
     "routes": [{
         "headers": {
