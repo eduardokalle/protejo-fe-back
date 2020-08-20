@@ -5,9 +5,16 @@
         "src": "index.js",
         "use": "@now/node-server"
     }],
-    "routes": [
-        {"src": "/*", "methods": ["GET"], "dest": "/index.js"},
-        {"src": "/sendMail", "methods": ["POST"], "dest": "/index.js"}
+    "routes": [ {"src": "/.*",
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        } }, 
+        {"src": "/.*",
+        "dest": "/index.js" },
+        {"src": "/sendMail",
+        "dest": "/index.js" }
     ],
     "env": {
         "NODE_ENV": "production",
