@@ -10,10 +10,10 @@
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
             "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
-        },
-        "src": "/.*",
-        "dest": "/index.js"
-    }],
+        }},
+        {"src": "/*", "methods": ["POST"], "dest": "/routes.js"},
+        {"src": "/sendMail", "methods": ["POST"], "dest": "/routes.js"}
+    ],
     "env": {
         "NODE_ENV": "production",
         "PORT": "80"

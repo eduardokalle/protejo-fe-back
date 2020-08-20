@@ -1,11 +1,8 @@
-// Requires
+
 var express = require('express');
 const parser = require('body-parser')
 
-// Start variables
-
 var rou = express();
-
 
 require('dotenv').config({path: 'variables.env'});
 const sgMail = require('@sendgrid/mail');
@@ -13,8 +10,6 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 rou.use(parser.json()) 
 rou.use(parser.urlencoded({ extended: true })) 
-
-
 
 rou.get('/', (req , res)=> {
     res.send('**Bienvenido al server te protejo**');
@@ -24,7 +19,7 @@ rou.post('/sendMail', (req , res)=> {
      
     const  { nombre , apellido , tel , mail , mensaje } = req.body;
     
-    res.end("yes");
+    res.end("Ok");
 
         const msg = {
             to: 'info@teprotejoenlinea.com',
