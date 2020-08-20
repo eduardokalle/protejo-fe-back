@@ -6,7 +6,8 @@ var rou = express();
 
 require('dotenv').config({path: 'variables.env'});
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+//sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey('SSG._EyIhsy3TTyH4Y-n14kq2A.TP8h7cPB52EkOV_L2Ggk0_WnTZbd1T_oXdpUwNYPNSc');
 
 rou.use(parser.json()) 
 rou.use(parser.urlencoded({ extended: true })) 
