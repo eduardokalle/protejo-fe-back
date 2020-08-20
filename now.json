@@ -5,7 +5,12 @@
         "src": "index.js",
         "use": "@now/node-server"
     }],
-    "routes": [
+    "routes": [{ 
+        "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+        }},
         {"src": "/*", "methods": ["GET"], "dest": "/index.js"},
         {"src": "/sendMail", "methods": ["POST"], "dest": "/routes.js"}
     ],
