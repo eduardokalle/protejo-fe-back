@@ -5,15 +5,18 @@ const parser = require('body-parser')
 var rou = express();
 
 require('dotenv').config({path: 'variables.env'});
-const sgMail = require('@sendgrid/mail');
-//sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-sgMail.setApiKey('SSG._EyIhsy3TTyH4Y-n14kq2A.TP8h7cPB52EkOV_L2Ggk0_WnTZbd1T_oXdpUwNYPNSc');
+sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 rou.use(parser.json()) 
 rou.use(parser.urlencoded({ extended: true })) 
 
 rou.get('/', (req , res)=> {
     res.send('**Bienvenido al server te protejo**');
+})
+
+rou.get('/sendMail', (req , res)=> {
+    res.send({});
 })
 
 rou.post('/sendMail', (req , res)=> {
@@ -75,10 +78,10 @@ rou.post('/sendMail', (req , res)=> {
 
         sgMail.send(msg).then(() => {
             console.log('Message send');
-            res.send('Mensaje enviado', '200');
+            res.status('Mensaje enviado', '200');
         }).catch((error) => {
             console.log(error.response.body);
-            res.send('Error = ' + error, '500');
+            res.status('Error = ' + error, '500');
         })
 
 })
