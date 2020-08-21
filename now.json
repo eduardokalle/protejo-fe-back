@@ -3,10 +3,7 @@
     "name": "protejo-fe-backv2",
     "builds": [{
         "src": "index.js",
-        "use": "@now/node-server",
-        "env": {
-            "SENDGRID_API_KEY": "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"
-          }
+        "use": "@now/node-server"
     }],
     "routes": [{
         "headers": {
@@ -19,6 +16,7 @@
     }],
     "env": {
         "NODE_ENV": "production",
-        "PORT": "80"
+        "PORT": "80",
+        "SENDGRID_API_KEY": "@sendgrid_api_key"
     }
 } 

@@ -4,9 +4,10 @@ const parser = require('body-parser')
 
 var rou = express();
 
-//require('dotenv').config({path: 'variables.env'});
+require('dotenv').config({path: 'variables.env'});
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 
 rou.use(parser.json()) 
 rou.use(parser.urlencoded({ extended: true })) 
