@@ -24,6 +24,8 @@ rou.post('/sendMail', (req , res)=> {
      
     const  { nombre , apellido , tel , mail , mensaje } = req.body;
     
+    res.end('Res end = yes');
+
         const msg = {
             to: 'info@teprotejoenlinea.com',
             from: 'info@teprotejoenlinea.com', 
@@ -80,9 +82,12 @@ rou.post('/sendMail', (req , res)=> {
         sgMail.send(msg).then(() => {
             console.log('Message send');
             res.status('Mensaje enviado', '200');
+            res.send('Mensaje enviado', '200');
+            res.end('Send Mail = yes')
         }).catch((error) => {
             console.log(error.response.body);
             res.status('Error = ' + error, '500');
+            res.send('Error = ' + error, '500');
         })
 
 })
